@@ -28,6 +28,7 @@
   },
   "browserslist": "> 0.1%",
   "dependencies": {
+    "materialize-css": "^1.0.0-rc.2",
     "scss-reset": "^1.2.2",
     "smart-grid": "^2.1.2"
   }

@@ -1,5 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
+//base
 @import 'vars.scss';
 @import 'base.scss';
 
+//containers
+@import 'containers/header.scss';
+@import 'containers/news.scss';
+
+//components
+@import 'components/logo.scss';
+
+//logos
+@import 'logos/github.scss';
