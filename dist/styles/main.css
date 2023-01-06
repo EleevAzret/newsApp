@@ -42,15 +42,28 @@ body {
 }
 
 .news {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-gap: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.news .card {
+  max-width: 38rem;
+}
+
+.news .card-title {
+  background-color: rgba(0,0,0,.5);
 }
 
 .logo {
   color: #fff8e8;
   font-size: 3.6rem;
   text-decoration: none;
+}
+
+.card-title {
+  font-size: 1rem;
 }
 
 .github {
