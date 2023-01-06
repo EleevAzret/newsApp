@@ -1,14 +1,6 @@
 .news {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: flex-end;
-
-  .card {
-    max-width: 38rem;
-
-    &-title {
-      background-color: rgba(#000, .5);
-    }
-  }
+  justify-content: space-around;
+  align-items: flex-start;
 }

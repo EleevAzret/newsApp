@@ -10,6 +10,7 @@
 
 html {
   font-size: 62.5%;
+  line-height: 0;
 }
 
 body {
@@ -44,16 +45,8 @@ body {
 .news {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: flex-end;
-}
-
-.news .card {
-  max-width: 38rem;
-}
-
-.news .card-title {
-  background-color: rgba(0,0,0,.5);
+  justify-content: space-around;
+  align-items: flex-start;
 }
 
 .logo {
@@ -62,8 +55,47 @@ body {
   text-decoration: none;
 }
 
-.card-title {
-  font-size: 1rem;
+.news-card {
+  max-width: 35rem;
+  border-radius: .2rem;
+  overflow: hidden;
+  box-shadow: 0 .2rem .2rem 0 rgba(0,0,0,.14),0 .3rem .1rem -0.2rem rgba(0,0,0,.12),0 .1rem .5rem 0 rgba(0,0,0,.2);
+  margin-bottom: 2rem;
+}
+
+.news-card__image {
+  width: 100%;
+}
+
+.news-card__image img {
+  width: 100%;
+}
+
+.news-card__title {
+  font-size: 1.4rem;
+  letter-spacing: .15rem;
+  padding: 0 0 0 .5rem;
+  display: inline-block;
+}
+
+.news-card__content {
+  font-size: 1.2rem;
+  letter-spacing: .05rem;
+  padding: 0 0 0 .5rem;
+  display: inline-block;
+}
+
+.news-card__action {
+  padding: 0 0 0 .5rem;
+}
+
+.news-card__action a {
+  color: #69c;
+  transition: all .2s;
+}
+
+.news-card__action a:hover {
+  color: #89c4ff;
 }
 
 .github {

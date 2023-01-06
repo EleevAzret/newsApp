@@ -118,16 +118,17 @@ function renderNews(news) {
   newsContainer.insertAdjacentHTML('afterbegin', fragment);
 };
 
+//create html news card
 function createNews({urlToImage, url, title, description}) {
-  return `<div class="card">
-            <div class="card-image">
+  return `<div class="news-card">
+            <div class="news-card__image">
               <img src="${urlToImage}">
-              <span class="card-title">${title || ''}</span>
             </div>
-            <div class="card-content">
+            <span class="news-card__title">${title || ''}</span>
+            <div class="news-card__content">
               <p>${description || ''}</p>
             </div>
-            <div class="card-action">
+            <div class="news-card__action">
               <a href="${url}">Read more</a>
             </div>
           </div>`
