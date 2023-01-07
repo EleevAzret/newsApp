@@ -2,4 +2,8 @@
   color: $white;
   font-size: 2.6rem;
   text-decoration: none;
+
+  @include media(xs) {
+    font-size: 2rem;
+  }
 }

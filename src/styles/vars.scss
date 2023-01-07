@@ -4,3 +4,29 @@ $fs-par: 1.6rem;
 
 $white: #fff8e8;
 $blue: #6699CC;
+
+@mixin media($screen) {
+	@if $screen == xs {
+		@media only screen and (max-width: 600px) {
+			@content;
+		}
+	}
+
+	@if $screen == s {
+		@media only screen and (max-width: 900px) {
+			@content;
+		}
+	}
+
+	@if $screen == m {
+		@media only screen and (max-width: 1240px) {
+			@content;
+		}
+	}
+
+	@if $screen == l {
+		@media only screen and (min-width: 1800px) {
+			@content;
+		}
+	}
+}

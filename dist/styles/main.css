@@ -40,13 +40,19 @@ body {
 
 .header__link {
   display: block;
+  width: 2.8rem;
+  height: 2.7rem;
+}
+
+.header__link img {
+  width: 2.8rem;
+  height: 2.7rem;
 }
 
 .news {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  align-items: flex-start;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 1rem;
 }
 
 .logo {
@@ -112,4 +118,46 @@ body {
 
 .github path {
   fill: #fff8e8;
+}
+
+@media only screen and (max-width: 900px) {
+  .news {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .news-card__title {
+    font-size: 1rem;
+  }
+
+  .news-card__content {
+    font-size: .8rem;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .header__link {
+    width: 2rem;
+    height: 1.9rem;
+  }
+
+  .header__link img {
+    width: 2rem;
+    height: 1.9rem;
+  }
+
+  .news {
+    grid-template-columns: 1fr;
+  }
+
+  .logo {
+    font-size: 2rem;
+  }
+
+  .news-card__title {
+    font-size: 1.2rem;
+  }
+
+  .news-card__content {
+    font-size: 1rem;
+  }
 }

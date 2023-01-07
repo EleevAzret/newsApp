@@ -1,6 +1,13 @@
 .news {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  align-items: flex-start;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 1rem;
+
+  @include media(s) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include media(xs) {
+    grid-template-columns: 1fr;
+  }
 }
