@@ -122,14 +122,13 @@ function renderNews(news) {
 function createNews({urlToImage, url, title, description}) {
   return `<div class="news-card">
             <div class="news-card__image">
+            <a href="${url}">
               <img src="${urlToImage}">
+            </a>
             </div>
             <span class="news-card__title">${title || ''}</span>
             <div class="news-card__content">
               <p>${description || ''}</p>
-            </div>
-            <div class="news-card__action">
-              <a href="${url}">Read more</a>
             </div>
           </div>`
 }

@@ -7,9 +7,15 @@
 
   &__image {
     width: 100%;
+
+    &:hover img {
+      //opacity: .75;
+      filter: brightness(70%);
+    }
     
     img {
       width: 100%;
+      transition: all .2s;
     }
   }
 
@@ -27,16 +33,17 @@
     display: inline-block;
   }
 
-  &__action {
-    padding: 0 0 0 .5rem;
+  //&__action {
+  //  padding: 0 0 0 .5rem;
+  //  font-size: 1.4rem;
 
-    a {
-      color: $blue;
-      transition: all .2s;
-    }
+  //  a {
+  //    color: $blue;
+  //    transition: all .2s;
+  //  }
 
-    a:hover {
-      color: #89c4ff;
-    }
-  }
+  //  a:hover {
+  //    color: #89c4ff;
+  //  }
+  //}
 }

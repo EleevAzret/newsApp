@@ -35,7 +35,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 2rem;
+  padding: .5rem 1rem;
 }
 
 .header__link {
@@ -51,7 +51,7 @@ body {
 
 .logo {
   color: #fff8e8;
-  font-size: 3.6rem;
+  font-size: 2.6rem;
   text-decoration: none;
 }
 
@@ -67,8 +67,14 @@ body {
   width: 100%;
 }
 
+.news-card__image:hover img {
+  -webkit-filter: brightness(70%);
+  filter: brightness(70%);
+}
+
 .news-card__image img {
   width: 100%;
+  transition: all .2s;
 }
 
 .news-card__title {
@@ -83,19 +89,6 @@ body {
   letter-spacing: .05rem;
   padding: 0 0 0 .5rem;
   display: inline-block;
-}
-
-.news-card__action {
-  padding: 0 0 0 .5rem;
-}
-
-.news-card__action a {
-  color: #69c;
-  transition: all .2s;
-}
-
-.news-card__action a:hover {
-  color: #89c4ff;
 }
 
 .github {
