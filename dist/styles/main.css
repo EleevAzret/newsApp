@@ -91,6 +91,20 @@ body {
   display: inline-block;
 }
 
+.news-card__action {
+  padding: 0 0 0 .5rem;
+  font-size: 1.4rem;
+}
+
+.news-card__action a {
+  color: #69c;
+  transition: all .2s;
+}
+
+.news-card__action a:hover {
+  color: #89c4ff;
+}
+
 .github {
   -webkit-transform: scale(0.8);
   transform: scale(0.8);

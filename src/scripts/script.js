@@ -70,6 +70,7 @@ function customHttp() {
   }
 };
 
+//init http module
 const http = customHttp();
 
 const newsService = (function() {
@@ -86,28 +87,54 @@ const newsService = (function() {
   }
 })();
 
+//elements
+const form = document.forms['newsControls'],
+      select = document.querySelector('#country'),
+      search = document.querySelector('#autocmplete-input');
+
+form.addEventListener('submit', formSubmitHandler);
+
+//activate materialize form
 document.addEventListener('DOMContentLoaded', function() {
   M.AutoInit();
   loadNews();
 })
 
-//load news function
+//load start news function
 function loadNews() {
-  newsService.topHeadlines('ru', onGetResponse);
+  showPreloader();
+  let country = select.value;
+  let searchMsg = search.value;
+
+  if(!searchMsg) {
+    newsService.topHeadlines(country, onGetResponse);
+  } else {
+    newsService.everything(searchMsg, onGetResponse);
+  }
 };
 
 //function on get response from server
 function onGetResponse(err, res) {
+  hidePreloader();
+  let news = JSON.parse(res.responseText).articles;
   if(err) {
-    console.error(err);
+    showAlert(err, 'error-msg');
+    console.log(err);
     return;
   }
 
-  renderNews(JSON.parse(res.responseText).articles);
+  if(!news.length) {
+    console.log('no response')
+    return;
+  }
+
+  renderNews(news);
 }
 
+//render news function
 function renderNews(news) {
   let newsContainer = document.querySelector('.news');
+  if(newsContainer.children.length) clearNews(newsContainer);
   let fragment = '';
 
   news.forEach(newsItem => {
@@ -131,4 +158,37 @@ function createNews({urlToImage, url, title, description}) {
               <p>${description || ''}</p>
             </div>
           </div>`
+}
+
+//clear news container
+function clearNews(container) {
+  container.innerHTML = '';
+}
+
+//handler form submit
+function formSubmitHandler(event) {
+  event.preventDefault();
+  loadNews();
+}
+
+//function to show materilize toast
+function showAlert(msg, type = 'success') {
+  M.toast({html: msg, classes: type});
+}
+
+//show preloader function
+function showPreloader() {
+  let newsContainer = document.querySelector('.news');
+  newsContainer.insertAdjacentHTML('beforebegin', 
+  `  <div class="progress">
+      <div class="indeterminate"></div>
+    </div>`
+  )
+}
+
+//hide preloader function
+function hidePreloader() {
+  let preloader = document.querySelector('.progress');
+  if(preloader) preloader.remove();
+  return;
 }

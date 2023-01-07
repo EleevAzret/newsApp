@@ -33,17 +33,17 @@
     display: inline-block;
   }
 
-  //&__action {
-  //  padding: 0 0 0 .5rem;
-  //  font-size: 1.4rem;
+  &__action {
+    padding: 0 0 0 .5rem;
+    font-size: 1.4rem;
 
-  //  a {
-  //    color: $blue;
-  //    transition: all .2s;
-  //  }
+    a {
+      color: $blue;
+      transition: all .2s;
+    }
 
-  //  a:hover {
-  //    color: #89c4ff;
-  //  }
-  //}
+    a:hover {
+      color: #89c4ff;
+    }
+  }
 }
