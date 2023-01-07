@@ -55,6 +55,37 @@ body {
   grid-gap: 1rem;
 }
 
+.footer {
+  width: 100%;
+  padding: 1.5rem 0;
+  display: flex;
+  justify-content: space-around;
+  background-color: #22958a;
+  color: #fff;
+}
+
+.footer__articles {
+  font-size: 1.2rem;
+}
+
+.footer__links {
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.footer__link {
+  display: block;
+  width: 2.8rem;
+  height: 2.7rem;
+}
+
+.footer__link img {
+  width: 2.8rem;
+  height: 2.7rem;
+}
+
 .logo {
   color: #fff8e8;
   font-size: 2.6rem;
@@ -111,15 +142,6 @@ body {
   color: #89c4ff;
 }
 
-.github {
-  -webkit-transform: scale(0.8);
-  transform: scale(0.8);
-}
-
-.github path {
-  fill: #fff8e8;
-}
-
 @media only screen and (max-width: 900px) {
   .news {
     grid-template-columns: repeat(2, 1fr);
@@ -147,6 +169,16 @@ body {
 
   .news {
     grid-template-columns: 1fr;
+  }
+
+  .footer__link {
+    width: 2rem;
+    height: 1.9rem;
+  }
+
+  .footer__link img {
+    width: 2rem;
+    height: 1.9rem;
   }
 
   .logo {

@@ -1,0 +1,38 @@
+.footer {
+  width: 100%;
+  padding: 1.5rem 0;
+  display: flex;
+  justify-content: space-around;
+  background-color: #22958a;
+  color: #fff;
+
+  &__articles {
+    font-size: 1.2rem;
+  }
+
+  &__links {
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  &__link {
+    display: block;
+    width: 2.8rem;
+    height: 2.7rem;
+    img {
+      width: 2.8rem;
+      height: 2.7rem;
+    }
+
+    @include media(xs) {
+      width: 2rem;
+      height: 1.9rem;
+      img {
+        width: 2rem;
+        height: 1.9rem;
+      }
+    }
+  }
+}

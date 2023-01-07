@@ -78,8 +78,8 @@ const newsService = (function() {
   const apiUrl = 'https://newsapi.org/v2';
 
   return {
-    topHeadlines(country = 'us', cb) {
-      http.get(`${apiUrl}/top-headlines?country=${country}&apiKey=${apiKey}`, cb);
+    topHeadlines(country = 'us', category = 'bussines', cb) {
+      http.get(`${apiUrl}/top-headlines?country=${country}&category=${category}&apiKey=${apiKey}`, cb);
     },
     everything(query, cb) {
       http.get(`${apiUrl}/everything?q=${query}&apiKey=${apiKey}`, cb);
@@ -89,7 +89,8 @@ const newsService = (function() {
 
 //elements
 const form = document.forms['newsControls'],
-      select = document.querySelector('#country'),
+      selectCountry = document.querySelector('#country'),
+      selectCategory = document.querySelector('#category'),
       search = document.querySelector('#autocmplete-input');
 
 form.addEventListener('submit', formSubmitHandler);
@@ -103,11 +104,12 @@ document.addEventListener('DOMContentLoaded', function() {
 //load start news function
 function loadNews() {
   showPreloader();
-  let country = select.value;
+  let country = selectCountry.value;
+  let category = selectCategory.value;
   let searchMsg = search.value;
 
   if(!searchMsg) {
-    newsService.topHeadlines(country, onGetResponse);
+    newsService.topHeadlines(country, category, onGetResponse);
   } else {
     newsService.everything(searchMsg, onGetResponse);
   }
@@ -124,7 +126,7 @@ function onGetResponse(err, res) {
   }
 
   if(!news.length) {
-    console.log('no response')
+    showAlert('Data loading error. Try again', 'error-msg');
     return;
   }
 
@@ -143,6 +145,7 @@ function renderNews(news) {
   })
 
   newsContainer.insertAdjacentHTML('afterbegin', fragment);
+  loadImageCheck();
 };
 
 //create html news card
@@ -178,6 +181,9 @@ function showAlert(msg, type = 'success') {
 
 //show preloader function
 function showPreloader() {
+  if(document.querySelector('.progress')) {
+    return;
+  }
   let newsContainer = document.querySelector('.news');
   newsContainer.insertAdjacentHTML('beforebegin', 
   `  <div class="progress">
@@ -191,4 +197,13 @@ function hidePreloader() {
   let preloader = document.querySelector('.progress');
   if(preloader) preloader.remove();
   return;
+}
+
+function loadImageCheck() {
+  let imgs = document.querySelectorAll('img');
+  imgs.forEach(img => {
+    img.addEventListener('error', function(e) {
+      this.src = 'https://via.placeholder.com/480x300/6699CC/E0F6FD?text=Read+more+(newsApp)';
+    })
+  })
 }
