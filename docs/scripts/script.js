@@ -74,15 +74,15 @@ function customHttp() {
 const http = customHttp();
 
 const newsService = (function() {
-  const apiKey = 'dae53cecec8342ac8fcf172a69ef8867';
-  const apiUrl = 'https://newsapi.org/v2';
+  const apiKey = '92358cd8db45fe7584426a4047d25d2a';
+  const apiUrl = 'https://gnews.io/api/v4';
 
   return {
     topHeadlines(country = 'us', category = 'bussines', cb) {
-      http.get(`${apiUrl}/top-headlines?country=${country}&category=${category}&apiKey=${apiKey}`, cb);
+      http.get(`${apiUrl}/top-headlines?topic=${category}&token=${apiKey}&lang=${country}&country=${country}&max=10`, cb);
     },
     everything(query, cb) {
-      http.get(`${apiUrl}/everything?q=${query}&apiKey=${apiKey}`, cb);
+      http.get(`${apiUrl}/search?q=${query}&token=${apiKey}&lang=${country}&country=${country}&max=10`, cb);
     }
   }
 })();
@@ -149,11 +149,11 @@ function renderNews(news) {
 };
 
 //create html news card
-function createNews({urlToImage, url, title, description}) {
+function createNews({image, url, title, description, publishedAt}) {
   return `<div class="news-card">
             <div class="news-card__image">
             <a href="${url}">
-              <img src="${urlToImage}">
+              <img src="${image}">
             </a>
             </div>
             <span class="news-card__title">${title || ''}</span>

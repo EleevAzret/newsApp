@@ -7,12 +7,12 @@ const path = require('path');
 const browserSync = require('browser-sync').create();
 
 function clean() {
-	return del('./dist/*');
+	return del('./docs/*');
 }
 
 function html() {
 	return gulp.src('./src/**/*.html')
-					.pipe(gulp.dest('./dist'));
+					.pipe(gulp.dest('./docs'));
 }
 
 function styles() {
@@ -22,30 +22,30 @@ function styles() {
         }).on('error', sass.logError))
 					.pipe(autoprefixer())
 					.pipe(gcmq())
-					.pipe(gulp.dest('./dist/styles'))
+					.pipe(gulp.dest('./docs/styles'))
 					.pipe(browserSync.stream());
 }
 
 function defaultStyles() {
 	return gulp.src('./src/styles/defaults/**/*')
-					.pipe(gulp.dest('./dist/styles/default'));
+					.pipe(gulp.dest('./docs/styles/default'));
 }
 
 
 function js() {
 	return gulp.src('./src/scripts/**/*.js')
-					.pipe(gulp.dest('./dist/scripts'));
+					.pipe(gulp.dest('./docs/scripts'));
 }
 
 function img() {
 	return gulp.src('./src/img/**/*')
-					.pipe(gulp.dest('./dist/img'));
+					.pipe(gulp.dest('./docs/img'));
 }
 
 function watch() {
 	browserSync.init({
 		server: {
-				baseDir: "./dist/"
+				baseDir: "./docs/"
 		}
 	});
 
