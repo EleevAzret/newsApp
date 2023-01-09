@@ -59,6 +59,7 @@ body {
   width: 100%;
   padding: 1.5rem 0;
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-around;
   background-color: #22958a;
   color: #fff;
@@ -169,6 +170,15 @@ body {
 
   .news {
     grid-template-columns: 1fr;
+  }
+
+  .footer__articles {
+    font-size: 1rem;
+  }
+
+  .footer__links {
+    font-size: 1rem;
+    gap: .5rem;
   }
 
   .footer__link {
