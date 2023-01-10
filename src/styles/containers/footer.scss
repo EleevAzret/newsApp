@@ -7,10 +7,15 @@
   background-color: #22958a;
   color: #fff;
 
+  @include media(xs) {
+    text-align: center;
+  }
+
   &__articles {
     font-size: 1.2rem;
     @include media(xs) {
       font-size: 1rem;
+      width: 100%;
     }
   }
 

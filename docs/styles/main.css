@@ -170,10 +170,16 @@ body {
 
   .news {
     grid-template-columns: 1fr;
+    justify-items: center;
+  }
+
+  .footer {
+    text-align: center;
   }
 
   .footer__articles {
     font-size: 1rem;
+    width: 100%;
   }
 
   .footer__links {
