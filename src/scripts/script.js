@@ -100,6 +100,7 @@ document.addEventListener('DOMContentLoaded', function() {
   M.AutoInit();
   let selects = document.querySelectorAll('select');
   var instances = M.FormSelect.init(selects);
+  fixMaterializeBug();
   loadNews();
 })
 
@@ -206,6 +207,16 @@ function loadImageCheck() {
   imgs.forEach(img => {
     img.addEventListener('error', function(e) {
       this.src = 'https://via.placeholder.com/480x300/6699CC/E0F6FD?text=Read+more+(newsApp)';
+    })
+  })
+}
+
+function fixMaterializeBug() {
+  let lis = document.querySelectorAll('li[id^="select-options"]');
+  lis.forEach(li => {
+    li.addEventListener('touchend', (e) => {
+      e.stopPropagation();
+      console.log(e);
     })
   })
 }
