@@ -30,6 +30,11 @@ body {
   margin: 0 auto;
 }
 
+.dropdown-content {
+  -webkit-transform: none !important;
+  transform: none !important;
+}
+
 .header {
   background-color: #69c;
   display: flex;

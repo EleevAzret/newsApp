@@ -98,6 +98,8 @@ form.addEventListener('submit', formSubmitHandler);
 //activate materialize form
 document.addEventListener('DOMContentLoaded', function() {
   M.AutoInit();
+  let selects = document.querySelectorAll('select');
+  var instances = M.FormSelect.init(selects);
   loadNews();
 })
 
